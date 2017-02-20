@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">SdaCourseApplication</string>
+    <string name="open">OPEN</string>
+    <string name="closed">CLOSED</string>
+    <string name="draw">Rysowanie</string>
+    <string name="game">Gra</string>
+    <string name="flague">Flaga</string>
+    <string name="gallery">Galeria</string>
+    <string name="open_url">Otwieranie strony URL</string>
+    <string name="broadcast">Broadcast</string>
+    <string name="clear">Wyczyść!</string>
+    <string name="blue">Niebieski</string>
+    <string name="red">Czerwony</string>
+    <string name="save">Zapisz</string>
+    <string name="clear_text">Wyczysc</string>
+    <string name="second_player">Drugi gracz</string>
+    <string name="first_player">Pierwszy gracz</string>
+    <string name="start">Start</string>
 </resources>
