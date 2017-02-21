@@ -98,7 +98,7 @@ public class SimpleDrawingGameMainActivity extends AppCompatActivity implements 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.back_from_draw_game) {
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
@@ -134,8 +134,10 @@ public class SimpleDrawingGameMainActivity extends AppCompatActivity implements 
             }
         }
         startButton.setVisibility(View.VISIBLE);
-        firstImageView.setVisibility(View.INVISIBLE);
-        seccondImageView.setVisibility(View.INVISIBLE);
+
+
+//        firstImageView.setVisibility(View.INVISIBLE);
+//        seccondImageView.setVisibility(View.INVISIBLE);
         countDownTimer.cancel();
         isRunning = false;
     }
