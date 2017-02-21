@@ -17,4 +17,8 @@
     <string name="second_player">Drugi gracz</string>
     <string name="first_player">Pierwszy gracz</string>
     <string name="start">Start</string>
+    <string name="gallery_text">Galeria</string>
+    <string name="draw_game">Gra obrazkowa</string>
+    <string name="draw_app">Rysuj!</string>
+    <string name="erase">Usuń</string>
 </resources>
