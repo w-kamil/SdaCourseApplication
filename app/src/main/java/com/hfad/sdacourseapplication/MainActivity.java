@@ -16,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hfad.sdacourseapplication.drawapp.DrawAppActivity;
+import com.hfad.sdacourseapplication.gallery.GalleryActivity;
 import com.hfad.sdacourseapplication.simpledrawgame.SimpleDrawingGameMainActivity;
 
 import org.w3c.dom.Text;
@@ -39,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
 
         TextView textViewDrawApp = (TextView) findViewById(R.id.draw_button);
         TextView textViewSimpleDrawGame = (TextView) findViewById(R.id.game_button);
+        TextView textViewGallery = (TextView) findViewById(R.id.gallery_button);
         textViewDrawApp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,6 +56,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        textViewGallery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), GalleryActivity.class);
+                startActivity(intent);
+            }
+        });
+
 
     }
 
@@ -63,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
             case android.R.id.home: {
                 if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
                     drawerLayout.closeDrawer(GravityCompat.START);
-
                 } else {
                     drawerLayout.openDrawer(GravityCompat.START);
                 }

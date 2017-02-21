@@ -136,8 +136,9 @@ public class SimpleDrawingGameMainActivity extends AppCompatActivity implements 
         startButton.setVisibility(View.VISIBLE);
 
 
-//        firstImageView.setVisibility(View.INVISIBLE);
-//        seccondImageView.setVisibility(View.INVISIBLE);
+        firstImageView.setVisibility(View.INVISIBLE);
+        seccondImageView.setVisibility(View.INVISIBLE);
+
         countDownTimer.cancel();
         isRunning = false;
     }

@@ -4,13 +4,18 @@
 
     <item
         android:id="@+id/clear"
-        android:title="@string/clgiear_text"
-        app:showAsAction="never" />
+        android:title="@string/clear_text"
+        android:icon="@drawable/ic_clear_image"
+        app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/save_draw"
         android:title="@string/save"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/drawing_gallery"
+        android:title="@string/gallery_text"
+        app:showAsAction="never"/>
     <item
         android:id="@+id/back_from_draw_app"
         android:title="@string/back"
