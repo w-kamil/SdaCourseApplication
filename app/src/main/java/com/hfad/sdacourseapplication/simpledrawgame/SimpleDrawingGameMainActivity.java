@@ -1,23 +1,27 @@
 package com.hfad.sdacourseapplication.simpledrawgame;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.hfad.sdacourseapplication.MainActivity;
 import com.hfad.sdacourseapplication.R;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
-public class SimpleDrawingGameMainActivity extends AppCompatActivity implements View.OnClickListener{
+public class SimpleDrawingGameMainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private List<Integer> images = Arrays.asList(R.drawable.one, R.drawable.two, R.drawable.three, R.drawable.four
             , R.drawable.auta, R.drawable.auto, R.drawable.china);
@@ -74,7 +78,8 @@ public class SimpleDrawingGameMainActivity extends AppCompatActivity implements 
             public void onClick(View v) {
                 firstPlayerButton.setBackground(defaultBackground);
                 secondPlayerButton.setBackground(defaultBackground);
-                animator.showIntro( new Runnable() {
+
+                animator.showIntro(new Runnable() {
                     @Override
                     public void run() {
                         isRunning = true;
@@ -90,26 +95,40 @@ public class SimpleDrawingGameMainActivity extends AppCompatActivity implements 
     }
 
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == R.id.back_from_draw_game) {
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(intent);
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.draw_game_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
 
     @Override
     public void onClick(View v) {
         if (!isRunning) return;
 
-        if(firstImageView.getTag().equals(seccondImageView.getTag())){
+        if (firstImageView.getTag().equals(seccondImageView.getTag())) {
             v.setBackgroundColor(Color.GREEN);
-                if(v.getId() == firstPlayerButton.getId()){
-                    secondPlayerButton.setBackgroundColor(Color.RED);
-                    Toast.makeText(this, "Pierwszy gracz wygral", Toast.LENGTH_LONG).show();
-                } else{
-                    firstPlayerButton.setBackgroundColor(Color.RED);
-                    Toast.makeText(this, "Drugi gracz wygral", Toast.LENGTH_LONG).show();
-                }
+            if (v.getId() == firstPlayerButton.getId()) {
+                secondPlayerButton.setBackgroundColor(Color.RED);
+                Toast.makeText(this, "Pierwszy gracz wygral", Toast.LENGTH_LONG).show();
+            } else {
+                firstPlayerButton.setBackgroundColor(Color.RED);
+                Toast.makeText(this, "Drugi gracz wygral", Toast.LENGTH_LONG).show();
+            }
         } else {
             v.setBackgroundColor(Color.RED);
-            if(v.getId() == firstPlayerButton.getId()){
+            if (v.getId() == firstPlayerButton.getId()) {
                 secondPlayerButton.setBackgroundColor(Color.GREEN);
                 Toast.makeText(this, "Pierwszy gracz przegral", Toast.LENGTH_LONG).show();
-            } else{
+            } else {
                 firstPlayerButton.setBackgroundColor(Color.GREEN);
                 Toast.makeText(this, "Drugi gracz przegral", Toast.LENGTH_LONG).show();
             }
@@ -121,3 +140,5 @@ public class SimpleDrawingGameMainActivity extends AppCompatActivity implements 
         isRunning = false;
     }
 }
+
+

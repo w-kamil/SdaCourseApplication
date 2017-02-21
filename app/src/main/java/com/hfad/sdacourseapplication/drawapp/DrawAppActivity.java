@@ -1,5 +1,6 @@
 package com.hfad.sdacourseapplication.drawapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import com.hfad.sdacourseapplication.MainActivity;
 import com.hfad.sdacourseapplication.R;
 
 public class DrawAppActivity extends AppCompatActivity {
@@ -20,7 +22,7 @@ public class DrawAppActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.draw_app_activity_main);
         simpleDrawingView = (SimpleDrawingView) findViewById(R.id.drawing_view);
-        Button button = (Button)findViewById(R.id.clear_button);
+        Button button = (Button) findViewById(R.id.clear_button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,19 +51,22 @@ public class DrawAppActivity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId() == R.id.clear){
+        if (item.getItemId() == R.id.clear) {
             simpleDrawingView.clear();
         }
-        if (item.getItemId() == R.id.save_draw){
+        if (item.getItemId() == R.id.save_draw) {
 
         }
-
+        if (item.getItemId() == R.id.back_from_draw_app){
+            Intent intent = new Intent(simpleDrawingView.getContext(), MainActivity.class);
+            startActivity(intent);
+        }
         return super.onOptionsItemSelected(item);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main_menu, menu);
+        getMenuInflater().inflate(R.menu.draw_app_menu, menu);
         return super.onCreateOptionsMenu(menu);
     }
 }

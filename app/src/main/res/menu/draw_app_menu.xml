@@ -11,5 +11,9 @@
         android:id="@+id/save_draw"
         android:title="@string/save"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/back_from_draw_app"
+        android:title="@string/back"
+        app:showAsAction="never" />
 
 </menu>
