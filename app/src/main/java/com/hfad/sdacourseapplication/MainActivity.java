@@ -1,25 +1,19 @@
 package com.hfad.sdacourseapplication;
 
 import android.content.Intent;
-import android.os.PersistableBundle;
+import android.os.Bundle;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.Gravity;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.hfad.sdacourseapplication.drawapp.DrawAppActivity;
 import com.hfad.sdacourseapplication.gallery.GalleryActivity;
+import com.hfad.sdacourseapplication.listapp.ListAppActivity;
 import com.hfad.sdacourseapplication.simpledrawgame.SimpleDrawingGameMainActivity;
-
-import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -41,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         TextView textViewDrawApp = (TextView) findViewById(R.id.draw_button);
         TextView textViewSimpleDrawGame = (TextView) findViewById(R.id.game_button);
         TextView textViewGallery = (TextView) findViewById(R.id.gallery_button);
+        TextView textViewListApp = (TextView) findViewById(R.id.list_app_button);
         textViewDrawApp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -60,6 +55,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), GalleryActivity.class);
+                startActivity(intent);
+            }
+        });
+        textViewListApp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), ListAppActivity.class);
                 startActivity(intent);
             }
         });

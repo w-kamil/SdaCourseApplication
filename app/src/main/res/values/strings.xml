@@ -21,4 +21,7 @@
     <string name="draw_game">Gra obrazkowa</string>
     <string name="draw_app">Rysuj!</string>
     <string name="erase">Usuń</string>
+    <string name="list_text">Lista Zadań</string>
+    <string name="add">Dodaj</string>
+    <string name="clear_list_menu_item">Wyczyść listę</string>
 </resources>
