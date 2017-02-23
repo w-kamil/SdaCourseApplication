@@ -21,6 +21,8 @@
             android:label="@string/draw_game"/>
         <activity android:name=".gallery.GalleryActivity"
             android:label="@string/gallery_text"/>
+        <activity android:name=".listapp.ListAppActivity"
+            android:label="@string/list_text"/>
     </application>
 
 </manifest>
