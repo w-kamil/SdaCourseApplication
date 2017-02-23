@@ -20,10 +20,23 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="My notes: " />
+            android:padding="4dp"
+            android:text="My notes: "
+            android:textSize="16sp" />
+
         <EditText
+            android:id="@+id/my_note_edit_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.8"
+            android:inputType="textMultiLine"
+            android:lines="8" />
+
+        <Button
+            android:id="@+id/save_note_button"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="@string/save_note_button_text" />
     </LinearLayout>
 
 
