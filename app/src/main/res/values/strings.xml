@@ -12,17 +12,14 @@
     <string name="blue">Niebieski</string>
     <string name="red">Czerwony</string>
     <string name="save">Zapisz</string>
-    <string name="clear_text">Wyczyść</string>
     <string name="back">Wróć</string>
     <string name="second_player">Drugi gracz</string>
     <string name="first_player">Pierwszy gracz</string>
     <string name="start">Start</string>
-    <string name="gallery_text">Galeria</string>
     <string name="draw_game">Gra obrazkowa</string>
     <string name="draw_app">Rysuj!</string>
     <string name="erase">Usuń</string>
-    <string name="list_text">Lista Zadań</string>
+    <string name="todo_list">Lista Zadań</string>
     <string name="add">Dodaj</string>
     <string name="clear_list_menu_item">Wyczyść listę</string>
-    <string name="save_note_button_text">Zapisz</string>
 </resources>

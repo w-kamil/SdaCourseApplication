@@ -20,9 +20,9 @@
         <activity android:name=".simpledrawgame.SimpleDrawingGameMainActivity"
             android:label="@string/draw_game"/>
         <activity android:name=".gallery.GalleryActivity"
-            android:label="@string/gallery_text"/>
+            android:label="@string/gallery"/>
         <activity android:name=".listapp.ListAppActivity"
-            android:label="@string/list_text"/>
+            android:label="@string/todo_list"/>
     </application>
 
 </manifest>
