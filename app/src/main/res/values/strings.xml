@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Moje Appki</string>
     <string name="open">OPEN</string>
-    <string name="closed">CLOSED</string>
+    <string name="close">CLOSE</string>
     <string name="draw">Rysowanie</string>
     <string name="game">Gra</string>
     <string name="flague">Flaga</string>
@@ -12,13 +12,14 @@
     <string name="blue">Niebieski</string>
     <string name="red">Czerwony</string>
     <string name="save">Zapisz</string>
-    <string name="clear_text">Wyczyść</string>
     <string name="back">Wróć</string>
     <string name="second_player">Drugi gracz</string>
     <string name="first_player">Pierwszy gracz</string>
     <string name="start">Start</string>
-    <string name="gallery_text">Galeria</string>
     <string name="draw_game">Gra obrazkowa</string>
     <string name="draw_app">Rysuj!</string>
     <string name="erase">Usuń</string>
+    <string name="todo_list">Lista Zadań</string>
+    <string name="add">Dodaj</string>
+    <string name="reflex">Reflex</string>
 </resources>
