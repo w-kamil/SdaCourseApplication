@@ -18,7 +18,7 @@ import java.util.List;
 public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.MyViewHolder> {
 
 
-    List<ToDoListItem> items = new ArrayList<>();
+    private List<ToDoListItem> items = new ArrayList<>();
     private OnItemCheckStateChanged checkListener;
 
     public void setCheckListener(OnItemCheckStateChanged checkListener) {
@@ -42,7 +42,9 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.MyView
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 listItem.setChecked(isChecked);
-                checkListener.onItemCheckStateChanged(getCheckedItemsCount());
+                if (checkListener != null) {
+                    checkListener.onItemCheckStateChanged(getCheckedItemsCount());
+                }
             }
         });
 
@@ -79,7 +81,7 @@ public class ToDoListAdapter extends RecyclerView.Adapter<ToDoListAdapter.MyView
         items = newItems;
         notifyDataSetChanged();
 
-        if(checkListener!= null){
+        if (checkListener != null) {
             checkListener.onItemCheckStateChanged(getCheckedItemsCount());
         }
     }

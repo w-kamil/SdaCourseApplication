@@ -28,8 +28,8 @@
             android:id="@+id/my_note_edit_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:inputType="textMultiLine"
             android:ems="8"
+            android:inputType="textMultiLine"
             android:lines="8" />
 
         <Button
@@ -118,7 +118,6 @@
             android:clickable="true"
             android:gravity="center"
             android:text="@string/todo_list" />
-
 
     </LinearLayout>
 </android.support.v4.widget.DrawerLayout>

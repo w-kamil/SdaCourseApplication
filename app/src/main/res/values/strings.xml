@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Moje Appki</string>
     <string name="open">OPEN</string>
-    <string name="closed">CLOSED</string>
+    <string name="close">CLOSE</string>
     <string name="draw">Rysowanie</string>
     <string name="game">Gra</string>
     <string name="flague">Flaga</string>
@@ -21,4 +21,5 @@
     <string name="erase">Usuń</string>
     <string name="todo_list">Lista Zadań</string>
     <string name="add">Dodaj</string>
- </resources>
+    <string name="reflex">Reflex</string>
+</resources>

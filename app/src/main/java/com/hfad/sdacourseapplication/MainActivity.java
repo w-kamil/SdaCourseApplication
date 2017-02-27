@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.open);
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
