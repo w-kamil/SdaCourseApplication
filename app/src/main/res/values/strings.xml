@@ -21,5 +21,11 @@
     <string name="erase">Usuń</string>
     <string name="todo_list">Lista Zadań</string>
     <string name="add">Dodaj</string>
-    <string name="reflex">Reflex</string>
+    <string name="checked_items">%d items</string>
+
+    <plurals name="checked_items_plural">
+        <item quantity="one">%d item</item>
+        <item quantity="other">%d items</item>
+    </plurals>
+
 </resources>
