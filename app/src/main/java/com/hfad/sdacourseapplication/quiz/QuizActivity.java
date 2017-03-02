@@ -32,6 +32,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     private int currentQuestuionIndex;
     private boolean wasViewClicked;
     private ValueAnimator objectAnimator;
+    private MediaPlayer mp;
 
 
     @Override
@@ -56,16 +57,15 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
-                Intent intent = new Intent(QuizActivity.this, QuizActivity.class);
-                intent.putExtra(INDEX_KEY, currentQuestuionIndex);
-                startActivity(intent);
+                mp.stop();
+                mp = null;
             }
         });
         progressBar.setProgress(0);
         objectAnimator.start();
 
         String uri = "http://www.kakofonia.pl/PL/PLtele/intro.mp3";
-        MediaPlayer mp = new MediaPlayer();
+        mp = new MediaPlayer();
         mp.setAudioStreamType(AudioManager.STREAM_MUSIC);
 
         try {
@@ -129,7 +129,9 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        objectAnimator.cancel();
+        objectAnimator.end();
+
+
         if (!wasViewClicked) {
 
             if ((Boolean) v.getTag()) {
@@ -139,7 +141,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(v.getContext(), "Zla odpowiedz", Toast.LENGTH_LONG).show();
                 v.setBackgroundColor(Color.RED);
             }
-            wasViewClicked = true;
+
 
             v.postDelayed(new Runnable() {
                 @Override
@@ -149,7 +151,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
                     startActivity(intent);
                 }
             }, 3000);
-
+            wasViewClicked = true;
         }
     }
 }
