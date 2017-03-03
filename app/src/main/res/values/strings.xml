@@ -22,6 +22,9 @@
     <string name="todo_list">Lista Zadań</string>
     <string name="add">Dodaj</string>
     <string name="checked_items">%d items</string>
+    <string name="quiz">Quiz</string>
+    <string name="library">Biblioteka</string>
+    <string name="read">Przeczytana</string>
 
     <plurals name="checked_items_plural">
         <item quantity="one">%d item</item>
