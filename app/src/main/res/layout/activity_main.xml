@@ -100,14 +100,14 @@
             android:text="@string/open_url" />
 
         <TextView
-            android:id="@+id/broadcast_button"
+            android:id="@+id/fortunetale_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="?attr/selectableItemBackground"
             android:clickable="true"
             android:gravity="center"
-            android:text="@string/broadcast" />
+            android:text="@string/fortunetale" />
 
         <TextView
             android:id="@+id/list_app_button"
@@ -120,23 +120,14 @@
             android:text="@string/todo_list" />
 
         <TextView
-
             android:id="@+id/quiz_appliacation"
-
             android:layout_width="match_parent"
-
             android:layout_height="wrap_content"
-
             android:layout_weight="1"
             android:background="?attr/selectableItemBackground"
             android:clickable="true"
-
             android:gravity="center"
-
-
-            android:text="Quiz"
-
-            />
+            android:text="Quiz" />
 
     </LinearLayout>
 </android.support.v4.widget.DrawerLayout>

@@ -30,10 +30,14 @@
         <activity
             android:name=".listapp.ListAppActivity"
             android:label="@string/todo_list" />
-        <activity android:name=".quiz.QuizActivity"
-            android:label="@string/quiz"></activity>
-        <activity android:name=".libraryapp.LibraryApp"
-            android:label="@string/library"></activity>
+        <activity
+            android:name=".quiz.QuizActivity"
+            android:label="@string/quiz" />
+        <activity
+            android:name=".libraryapp.LibraryApp"
+            android:label="@string/library" />
+        <activity android:name=".fortunetale.FortunetaleActivity"
+            android:label="@string/fortunetale"/>
     </application>
 
 </manifest>

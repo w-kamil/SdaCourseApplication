@@ -58,7 +58,6 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
                 mp.stop();
-                mp = null;
             }
         });
         progressBar.setProgress(0);
@@ -81,32 +80,32 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
             json = loadQuizJson();
             QuizContainer quizContainer = new Gson().fromJson(json, QuizContainer.class);
 
-                TextView questionTextView = (TextView) findViewById(R.id.quiz_question);
-                QuizQuestion quizQuestion = quizContainer.getQuestions().get(currentQuestuionIndex);
-                questionTextView.setText(quizQuestion.getQuestion());
-                Button firstButton = (Button) findViewById(R.id.first);
-                Button secondButton = (Button) findViewById(R.id.second);
-                Button thirdButton = (Button) findViewById(R.id.third);
-                Button fourthButton = (Button) findViewById(R.id.fourth);
+            TextView questionTextView = (TextView) findViewById(R.id.quiz_question);
+            QuizQuestion quizQuestion = quizContainer.getQuestions().get(currentQuestuionIndex);
+            questionTextView.setText(quizQuestion.getQuestion());
+            Button firstButton = (Button) findViewById(R.id.first);
+            Button secondButton = (Button) findViewById(R.id.second);
+            Button thirdButton = (Button) findViewById(R.id.third);
+            Button fourthButton = (Button) findViewById(R.id.fourth);
 
-                SingleAnswer firstAnswer = quizQuestion.getAnswers().get(0);
-                SingleAnswer secondAnswer = quizQuestion.getAnswers().get(1);
-                SingleAnswer thirdAnswer = quizQuestion.getAnswers().get(2);
-                SingleAnswer fourthAnswer = quizQuestion.getAnswers().get(3);
+            SingleAnswer firstAnswer = quizQuestion.getAnswers().get(0);
+            SingleAnswer secondAnswer = quizQuestion.getAnswers().get(1);
+            SingleAnswer thirdAnswer = quizQuestion.getAnswers().get(2);
+            SingleAnswer fourthAnswer = quizQuestion.getAnswers().get(3);
 
-                firstButton.setText(firstAnswer.getText());
-                firstButton.setTag(firstAnswer.isCorrect());
-                secondButton.setText(secondAnswer.getText());
-                secondButton.setTag(secondAnswer.isCorrect());
-                thirdButton.setText(thirdAnswer.getText());
-                thirdButton.setTag(thirdAnswer.isCorrect());
-                fourthButton.setText(fourthAnswer.getText());
-                fourthButton.setTag(fourthAnswer.isCorrect());
+            firstButton.setText(firstAnswer.getText());
+            firstButton.setTag(firstAnswer.isCorrect());
+            secondButton.setText(secondAnswer.getText());
+            secondButton.setTag(secondAnswer.isCorrect());
+            thirdButton.setText(thirdAnswer.getText());
+            thirdButton.setTag(thirdAnswer.isCorrect());
+            fourthButton.setText(fourthAnswer.getText());
+            fourthButton.setTag(fourthAnswer.isCorrect());
 
-                firstButton.setOnClickListener(this);
-                secondButton.setOnClickListener(this);
-                thirdButton.setOnClickListener(this);
-                fourthButton.setOnClickListener(this);
+            firstButton.setOnClickListener(this);
+            secondButton.setOnClickListener(this);
+            thirdButton.setOnClickListener(this);
+            fourthButton.setOnClickListener(this);
 
         } catch (IOException e) {
             e.printStackTrace();

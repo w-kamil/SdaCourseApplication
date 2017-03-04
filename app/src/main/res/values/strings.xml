@@ -7,7 +7,6 @@
     <string name="flague">Flaga</string>
     <string name="gallery">Galeria</string>
     <string name="open_url">Otwieranie strony URL</string>
-    <string name="broadcast">Broadcast</string>
     <string name="clear">Wyczyść!</string>
     <string name="blue">Niebieski</string>
     <string name="red">Czerwony</string>
@@ -25,6 +24,9 @@
     <string name="quiz">Quiz</string>
     <string name="library">Biblioteka</string>
     <string name="read">Przeczytana</string>
+    <string name="fortunetale">Wróżby</string>
+    <string name="fortune_grzes">Szedł Grześ przez wieś</string>
+    <string name="fortune_prolog">Potrząśnij lub dotknij, żeby zobaczyć wróżbę</string>
 
     <plurals name="checked_items_plural">
         <item quantity="one">%d item</item>

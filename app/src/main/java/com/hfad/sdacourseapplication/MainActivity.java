@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.hfad.sdacourseapplication.drawapp.DrawAppActivity;
+import com.hfad.sdacourseapplication.fortunetale.FortunetaleActivity;
 import com.hfad.sdacourseapplication.gallery.GalleryActivity;
 import com.hfad.sdacourseapplication.libraryapp.LibraryApp;
 import com.hfad.sdacourseapplication.listapp.ListAppActivity;
@@ -42,11 +43,9 @@ public class MainActivity extends AppCompatActivity {
         TextView textViewSimpleDrawGame = (TextView) findViewById(R.id.game_button);
         TextView textViewLibrabryApp = (TextView) findViewById(R.id.library_button);
         TextView textViewGallery = (TextView) findViewById(R.id.gallery_button);
+        TextView textViewFortuneTale = (TextView) findViewById(R.id.fortunetale_button);
         TextView textViewListApp = (TextView) findViewById(R.id.list_app_button);
-
         TextView quizApplication = (TextView) findViewById(R.id.quiz_appliacation);
-
-
 
         textViewDrawApp.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,6 +74,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), GalleryActivity.class);
+                startActivity(intent);
+            }
+        });
+        textViewFortuneTale.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(v.getContext(), FortunetaleActivity.class);
                 startActivity(intent);
             }
         });
