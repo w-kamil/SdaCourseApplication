@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
+import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -17,6 +18,7 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ViewSwitcher;
 
 import com.google.gson.Gson;
 import com.hfad.sdacourseapplication.R;
@@ -25,6 +27,8 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 
 public class QuizActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -39,6 +43,8 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
+        final ViewSwitcher viewSwitcher = (ViewSwitcher) findViewById(R.id.view_switcher);
+
 
         currentQuestuionIndex = getIntent().getIntExtra(INDEX_KEY, 0);
 
@@ -61,7 +67,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
         progressBar.setProgress(0);
-        objectAnimator.start();
+
 
         String uri = "http://www.kakofonia.pl/PL/PLtele/intro.mp3";
         mp = new MediaPlayer();
@@ -75,48 +81,67 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
             e.printStackTrace();
         }
 
-        String json = null;
-        try {
-            json = loadQuizJson();
-            QuizContainer quizContainer = new Gson().fromJson(json, QuizContainer.class);
+        new AsyncTask<String, Void, QuizContainer>() {
+            String json = null;
 
-            TextView questionTextView = (TextView) findViewById(R.id.quiz_question);
-            QuizQuestion quizQuestion = quizContainer.getQuestions().get(currentQuestuionIndex);
-            questionTextView.setText(quizQuestion.getQuestion());
-            Button firstButton = (Button) findViewById(R.id.first);
-            Button secondButton = (Button) findViewById(R.id.second);
-            Button thirdButton = (Button) findViewById(R.id.third);
-            Button fourthButton = (Button) findViewById(R.id.fourth);
+            @Override
+            protected QuizContainer doInBackground(String... params) {
+                try {
+                    json = loadQuizJsonFromURL(params[0]);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                QuizContainer quizContainer = new Gson().fromJson(json, QuizContainer.class);
+                return quizContainer;
+            }
 
-            SingleAnswer firstAnswer = quizQuestion.getAnswers().get(0);
-            SingleAnswer secondAnswer = quizQuestion.getAnswers().get(1);
-            SingleAnswer thirdAnswer = quizQuestion.getAnswers().get(2);
-            SingleAnswer fourthAnswer = quizQuestion.getAnswers().get(3);
-
-            firstButton.setText(firstAnswer.getText());
-            firstButton.setTag(firstAnswer.isCorrect());
-            secondButton.setText(secondAnswer.getText());
-            secondButton.setTag(secondAnswer.isCorrect());
-            thirdButton.setText(thirdAnswer.getText());
-            thirdButton.setTag(thirdAnswer.isCorrect());
-            fourthButton.setText(fourthAnswer.getText());
-            fourthButton.setTag(fourthAnswer.isCorrect());
-
-            firstButton.setOnClickListener(this);
-            secondButton.setOnClickListener(this);
-            thirdButton.setOnClickListener(this);
-            fourthButton.setOnClickListener(this);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+            @Override
+            protected void onPostExecute(QuizContainer quizContainer) {
+                displayResultInScreen(quizContainer);
+                viewSwitcher.setDisplayedChild(1);
+                objectAnimator.start();
+            }
+        }.execute("https://sdacourse-142f9.firebaseio.com/quiz.json");
 
 
     }
 
-    private String loadQuizJson() throws IOException {
+    private void displayResultInScreen(QuizContainer quizContainer) {
+        TextView questionTextView = (TextView) findViewById(R.id.quiz_question);
+        QuizQuestion quizQuestion = quizContainer.getQuestions().get(currentQuestuionIndex);
+        questionTextView.setText(quizQuestion.getQuestion());
+        Button firstButton = (Button) findViewById(R.id.first);
+        Button secondButton = (Button) findViewById(R.id.second);
+        Button thirdButton = (Button) findViewById(R.id.third);
+        Button fourthButton = (Button) findViewById(R.id.fourth);
+
+        SingleAnswer firstAnswer = quizQuestion.getAnswers().get(0);
+        SingleAnswer secondAnswer = quizQuestion.getAnswers().get(1);
+        SingleAnswer thirdAnswer = quizQuestion.getAnswers().get(2);
+        SingleAnswer fourthAnswer = quizQuestion.getAnswers().get(3);
+
+        firstButton.setText(firstAnswer.getText());
+        firstButton.setTag(firstAnswer.isCorrect());
+        secondButton.setText(secondAnswer.getText());
+        secondButton.setTag(secondAnswer.isCorrect());
+        thirdButton.setText(thirdAnswer.getText());
+        thirdButton.setTag(thirdAnswer.isCorrect());
+        fourthButton.setText(fourthAnswer.getText());
+        fourthButton.setTag(fourthAnswer.isCorrect());
+
+        firstButton.setOnClickListener(this);
+        secondButton.setOnClickListener(this);
+        thirdButton.setOnClickListener(this);
+        fourthButton.setOnClickListener(this);
+    }
+
+    private String loadQuizJsonFromURL(String strinGurl) throws IOException {
+        URL url = new URL(strinGurl);
+
+        HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+
         StringBuilder buf = new StringBuilder();
-        InputStream json = getAssets().open("quiz_data.json");
+        InputStream json = httpURLConnection.getInputStream();
         BufferedReader in = new BufferedReader(new InputStreamReader(json, "UTF-8"));
         String str;
         while ((str = in.readLine()) != null) {

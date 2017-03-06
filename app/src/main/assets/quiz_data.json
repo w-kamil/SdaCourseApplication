@@ -1,50 +1,51 @@
 {
-  "questionsCount": 1,
-  "questions": [
-    {
-      "id": 1,
-      "question": "Głównym komponentem aplikacji androidowej nie jest",
-      "answers": [
-        {
-          "isCorrect": true,
-          "text": "AndroidManifest"
-        },
-        {
-          "isCorrect": false,
-          "text": "Activity"
-        },
-        {
-          "isCorrect": false,
-          "text": "BroadcastReceiver"
-        },
-        {
-          "isCorrect": false,
-          "text": "Service"
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "question": "Wiecje niz jedno zwierze",
-      "answers": [
-        {
-          "isCorrect": true,
-          "text": "Stado"
-        },
-        {
-          "isCorrect": false,
-          "text": "Owca"
-        },
-        {
-          "isCorrect": false,
-          "text": "Kanapka"
-        },
-        {
-          "isCorrect": false,
-          "text": "Lama"
-        }
-      ]
-    }
-
-  ]
+  "quiz": {
+    "questionsCount": 2,
+    "questions": [
+      {
+        "id": 1,
+        "question": "Głównym komponentem aplikacji androidowej nie jest",
+        "answers": [
+          {
+            "isCorrect": true,
+            "text": "AndroidManifest"
+          },
+          {
+            "isCorrect": false,
+            "text": "Activity"
+          },
+          {
+            "isCorrect": false,
+            "text": "BroadcastReceiver"
+          },
+          {
+            "isCorrect": false,
+            "text": "Service"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "question": "Wiecje niz jedno zwierze",
+        "answers": [
+          {
+            "isCorrect": true,
+            "text": "Stado"
+          },
+          {
+            "isCorrect": false,
+            "text": "Owca"
+          },
+          {
+            "isCorrect": false,
+            "text": "Kanapka"
+          },
+          {
+            "isCorrect": false,
+            "text": "Lama"
+          }
+        ]
+      }
+    ]
+  }
 }
