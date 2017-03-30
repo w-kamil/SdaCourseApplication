@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="4dp"
-            android:text="My notes: "
+            android:text="@string/notes"
             android:textSize="16sp" />
 
         <EditText
@@ -45,24 +45,22 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:background="@android:color/white"
-        android:orientation="vertical"
-        android:weightSum="7">
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/draw_button"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:background="?attr/selectableItemBackground"
             android:clickable="true"
-            android:gravity="center_horizontal"
-            android:paddingBottom="10dp"
-            android:paddingTop="10dp"
+            android:gravity="center"
             android:text="@string/draw" />
 
         <TextView
             android:id="@+id/game_button"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_weight="1"
             android:background="?attr/selectableItemBackground"
             android:clickable="true"
@@ -72,7 +70,7 @@
         <TextView
             android:id="@+id/library_button"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_weight="1"
             android:background="?attr/selectableItemBackground"
             android:clickable="true"
@@ -82,7 +80,7 @@
         <TextView
             android:id="@+id/gallery_button"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_weight="1"
             android:background="?attr/selectableItemBackground"
             android:clickable="true"
@@ -92,7 +90,7 @@
         <TextView
             android:id="@+id/open_url_button"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_weight="1"
             android:background="?attr/selectableItemBackground"
             android:clickable="true"
@@ -102,7 +100,7 @@
         <TextView
             android:id="@+id/fortunetale_button"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_weight="1"
             android:background="?attr/selectableItemBackground"
             android:clickable="true"
@@ -112,7 +110,7 @@
         <TextView
             android:id="@+id/list_app_button"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_weight="1"
             android:background="?attr/selectableItemBackground"
             android:clickable="true"
@@ -122,12 +120,12 @@
         <TextView
             android:id="@+id/quiz_appliacation"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_weight="1"
             android:background="?attr/selectableItemBackground"
             android:clickable="true"
             android:gravity="center"
-            android:text="Quiz" />
+            android:text="@string/quiz" />
 
     </LinearLayout>
 </android.support.v4.widget.DrawerLayout>
