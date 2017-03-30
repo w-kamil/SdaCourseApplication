@@ -10,7 +10,6 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -31,6 +30,9 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.open_url_button)
     TextView openUrlButton;
 
+    @BindView(R.id.my_note_edit_text)
+    EditText notesEditText;
+
     private static final String NOTES_KEY = "notes";
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
@@ -47,54 +49,55 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         ButterKnife.bind(this);
 
-
-        final EditText notesEditText = (EditText) findViewById(R.id.my_note_edit_text);
         notesEditText.setText(readText());
-
-        Button saveButton = (Button) findViewById(R.id.save_note_button);
-        saveButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                saveText(notesEditText.getText().toString());
-            }
-        });
     }
 
-    @OnClick(R.id.draw_button) void drawAppStart(View v){
+    @OnClick(R.id.draw_button)
+    void drawAppStart(View v) {
         Intent intent = new Intent(v.getContext(), DrawAppActivity.class);
         startActivity(intent);
     }
 
-    @OnClick(R.id.game_button) void drawGameStart(View v){
+    @OnClick(R.id.game_button)
+    void drawGameStart(View v) {
         Intent intent = new Intent(v.getContext(), SimpleDrawingGameMainActivity.class);
         startActivity(intent);
     }
 
-    @OnClick(R.id.library_button) void libraryStart(View v){
+    @OnClick(R.id.library_button)
+    void libraryStart(View v) {
         Intent intent = new Intent(v.getContext(), LibraryApp.class);
         startActivity(intent);
     }
 
-    @OnClick(R.id.gallery_button) void galleryStart(View v){
+    @OnClick(R.id.gallery_button)
+    void galleryStart(View v) {
         Intent intent = new Intent(v.getContext(), GalleryActivity.class);
         startActivity(intent);
     }
 
-    @OnClick(R.id.fortunetale_button) void fortunetaleAppStart(View v){
+    @OnClick(R.id.fortunetale_button)
+    void fortunetaleAppStart(View v) {
         Intent intent = new Intent(v.getContext(), FortunetaleActivity.class);
         startActivity(intent);
     }
 
-    @OnClick(R.id.list_app_button) void listAppStart(View v){
+    @OnClick(R.id.list_app_button)
+    void listAppStart(View v) {
         Intent intent = new Intent(v.getContext(), ListAppActivity.class);
         startActivity(intent);
     }
 
-    @OnClick(R.id.quiz_appliacation) void quizAppStart(View v){
-        Intent intent = new Intent(v.getContext(),QuizActivity.class);
+    @OnClick(R.id.quiz_appliacation)
+    void quizAppStart(View v) {
+        Intent intent = new Intent(v.getContext(), QuizActivity.class);
         startActivity(intent);
     }
 
+    @OnClick(R.id.save_note_button)
+    void saveText(View v) {
+        saveText(notesEditText.getText().toString());
+    }
 
 
     private String readText() {

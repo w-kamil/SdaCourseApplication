@@ -28,6 +28,9 @@
     <string name="fortune_grzes">Szedł Grześ przez wieś</string>
     <string name="fortune_prolog">Potrząśnij lub dotknij, żeby zobaczyć wróżbę</string>
     <string name="notes">Notatki:</string>
+    <string name="notes_hint">To możesz zapisać swoje notatki</string>
+    <string name="Green">niebieski</string>
+    <string name="black">Czarny</string>
 
     <plurals name="checked_items_plural">
         <item quantity="one">%d item</item>

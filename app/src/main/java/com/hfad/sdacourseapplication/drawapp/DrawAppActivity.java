@@ -23,24 +23,23 @@ import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class DrawAppActivity extends AppCompatActivity {
 
+    @BindView(R.id.drawing_view)
+    SimpleDrawingView simpleDrawingView;
 
     public static final String DRAWING_GALLERY = "drawing_gallery";
-    private SimpleDrawingView simpleDrawingView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.draw_app_activity_main);
-        simpleDrawingView = (SimpleDrawingView) findViewById(R.id.drawing_view);
-        Button button = (Button) findViewById(R.id.clear_button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                simpleDrawingView.clear();
-            }
-        });
+
+        ButterKnife.bind(this);
 
         Button blueButton = (Button) findViewById(R.id.blue_button);
         Button redButton = (Button) findViewById(R.id.red_button);
@@ -58,6 +57,10 @@ public class DrawAppActivity extends AppCompatActivity {
                 simpleDrawingView.setCurrentColor(ContextCompat.getColor(DrawAppActivity.this, R.color.red));
             }
         });
+    }
+
+    @OnClick(R.id.clear_button) void clearView(){
+        simpleDrawingView.clear();
     }
 
 
