@@ -3,7 +3,6 @@ package com.hfad.sdacourseapplication.drawapp;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
@@ -41,28 +40,31 @@ public class DrawAppActivity extends AppCompatActivity {
 
         ButterKnife.bind(this);
 
-        Button blueButton = (Button) findViewById(R.id.blue_button);
-        Button redButton = (Button) findViewById(R.id.red_button);
-
-        blueButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                simpleDrawingView.setCurrentColor(ContextCompat.getColor(DrawAppActivity.this, R.color.blue));
-            }
-        });
-
-        redButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                simpleDrawingView.setCurrentColor(ContextCompat.getColor(DrawAppActivity.this, R.color.red));
-            }
-        });
     }
 
     @OnClick(R.id.clear_button) void clearView(){
         simpleDrawingView.clear();
     }
 
+    @OnClick(R.id.save_button) void saveDrawing(){
+        saveDrawingToFile();
+    }
+
+    @OnClick(R.id.blue_button) void setCurrentColorBlue(){
+        simpleDrawingView.setCurrentColor(ContextCompat.getColor(DrawAppActivity.this, R.color.blue));
+    }
+
+    @OnClick(R.id.red_button) void setCurrentColorRed(){
+        simpleDrawingView.setCurrentColor(ContextCompat.getColor(DrawAppActivity.this, R.color.red));
+    }
+
+    @OnClick(R.id.green_button) void setCurrentColorGreen(){
+        simpleDrawingView.setCurrentColor(ContextCompat.getColor(DrawAppActivity.this, R.color.green));
+    }
+
+    @OnClick(R.id.black_button) void setCurrentColorBlack(){
+        simpleDrawingView.setCurrentColor(ContextCompat.getColor(DrawAppActivity.this, R.color.black));
+    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

@@ -8,7 +8,7 @@
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/back_from_gallery"
-        android:title="@string/back"
+        android:title="@string/main_menu"
         app:showAsAction="never" />
 
 </menu>

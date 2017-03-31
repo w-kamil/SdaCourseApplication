@@ -31,6 +31,7 @@
     <string name="notes_hint">To możesz zapisać swoje notatki</string>
     <string name="Green">niebieski</string>
     <string name="black">Czarny</string>
+    <string name="main_menu">Menu główne</string>
 
     <plurals name="checked_items_plural">
         <item quantity="one">%d item</item>

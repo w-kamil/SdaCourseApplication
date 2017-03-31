@@ -8,11 +8,9 @@ import android.animation.ValueAnimator;
 import android.animation.ValueAnimator.AnimatorUpdateListener;
 import android.content.Intent;
 import android.graphics.Color;
-import android.media.AudioManager;
-import android.media.MediaPlayer;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -36,7 +34,7 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
     private int currentQuestuionIndex;
     private boolean wasViewClicked;
     private ValueAnimator objectAnimator;
-    private MediaPlayer mp;
+
 
 
     @Override
@@ -63,23 +61,13 @@ public class QuizActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onAnimationEnd(Animator animation) {
                 super.onAnimationEnd(animation);
-                mp.stop();
+
             }
         });
         progressBar.setProgress(0);
 
 
-        String uri = "http://www.kakofonia.pl/PL/PLtele/intro.mp3";
-        mp = new MediaPlayer();
-        mp.setAudioStreamType(AudioManager.STREAM_MUSIC);
 
-        try {
-            mp.setDataSource(uri);
-            mp.prepare();
-            mp.start();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
         new AsyncTask<String, Void, QuizContainer>() {
             String json = null;

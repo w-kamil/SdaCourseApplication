@@ -28,6 +28,12 @@
             android:layout_gravity="left"
             android:text="@string/clear" />
 
+        <Button
+            android:id="@+id/save_button"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="@string/save"/>
+
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
